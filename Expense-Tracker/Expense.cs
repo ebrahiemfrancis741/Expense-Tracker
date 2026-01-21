@@ -8,7 +8,7 @@ namespace Expense_Tracker
     {
         public int Id { get; set; }
         public string Description { get; set; }
-        public double Ammount { get; set; }
+        public double Amount { get; set; }
         public DateOnly Date {  get; set; }
 
 
