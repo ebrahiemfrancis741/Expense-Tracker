@@ -63,14 +63,19 @@ namespace Expense_Tracker
             return true;
         }
 
-        public string Summary()
+        public double Summary()
         {
-            return "";
+            double total = 0.0;
+            foreach (Expense expense in Expenses)
+            {
+                total += expense.Amount;
+            }
+            return total;
         }
 
-        public string Summary(int month)
+        public double Summary(int month)
         {
-            return "";
+            return 0.0;
         }
 
         public int getExpenseId(int id)
