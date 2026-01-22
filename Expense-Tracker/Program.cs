@@ -26,6 +26,9 @@ namespace Expense_Tracker
             expenseTracker.AddExpense("water", 700.0);
             printExpenses(expenseTracker.Expenses);
 
+            expenseTracker.UpdateExpense(1, 2000.0);
+            printExpenses(expenseTracker.Expenses);
+
         }
     }
 }

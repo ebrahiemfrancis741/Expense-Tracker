@@ -42,6 +42,12 @@ namespace Expense_Tracker
 
         public bool UpdateExpense(int id, double amount)
         {
+            int index = getExpenseId(id);
+            if (index >= 0)
+            {
+                Expenses[index].Amount = amount;
+                return true;
+            }
             return false;
         }
 
