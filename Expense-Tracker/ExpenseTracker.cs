@@ -75,7 +75,27 @@ namespace Expense_Tracker
 
         public double Summary(int month)
         {
-            return 0.0;
+            List<Expense> expensesFromDate = GetExpensesFromDate(month);
+            double total = 0.0;
+
+            foreach (Expense expense in Expenses)
+            {
+                total += expense.Amount;
+            }
+            return total;
+        }
+
+        public List<Expense> GetExpensesFromDate(int month)
+        {
+            List<Expense> expensesFromDate = new List<Expense>();
+            foreach (Expense expense in Expenses)
+            {
+                if (expense.Date.Month == month)
+                {
+                    expensesFromDate.Add(expense);
+                }
+            }
+            return expensesFromDate;
         }
 
         public int getExpenseId(int id)

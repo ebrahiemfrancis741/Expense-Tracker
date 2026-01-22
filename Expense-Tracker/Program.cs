@@ -29,7 +29,8 @@ namespace Expense_Tracker
             expenseTracker.UpdateExpense(1, 2000.0);
             printExpenses(expenseTracker.Expenses);
 
-            Console.WriteLine("Total expenses: $" + expenseTracker.Summary());
+            //Console.WriteLine("Total expenses: $" + expenseTracker.Summary());
+            Console.WriteLine("Total expenses: $" + expenseTracker.Summary(1));
         }
     }
 }
