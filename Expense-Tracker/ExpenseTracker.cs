@@ -35,7 +35,9 @@ namespace Expense_Tracker
 
         public bool AddExpense(string description, double amount)
         {
-            return false;
+            Expense expense = new Expense(getNextId(), description, amount, DateTime.Now);
+            Expenses.Add(expense);
+            return true;
         }
 
         public bool UpdateExpense(int id, double amount)
@@ -45,7 +47,14 @@ namespace Expense_Tracker
 
         public bool DeleteExpense(int id)
         {
-            return false;
+            int index = getExpenseId(id);
+            if (index == -1)
+            {
+                return false;
+            }
+            RecycledIDs.Add(id);
+            Expenses.RemoveAt(index);
+            return true;
         }
 
         public string Summary()
@@ -56,6 +65,21 @@ namespace Expense_Tracker
         public string Summary(int month)
         {
             return "";
+        }
+
+        public int getExpenseId(int id)
+        {
+            int count = 0;
+            foreach (Expense expense in Expenses)
+            {
+                if (expense.Id == id)
+                {
+                    return count;
+                }
+                count++;
+            }
+
+            return -1;
         }
 
     }
